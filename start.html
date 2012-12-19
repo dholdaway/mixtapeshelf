@@ -1,0 +1,137 @@
+<!doctype>
+<html>
+	<head>
+		<title>Mix Tape Shelf</title>
+		<!-- <meta name="description" content="Flip is a jQuery plugin to apply flip animation to any element."/>
+		<meta name="keywords" content="flip, flipping, jquery, jquery plugin, plugin, animation plugin, javascript, css, border animation"/>
+		<meta name="language" content="english"/>
+		<meta name="robots" content="index,follow"/>
+		<meta name="author" content="Luca Manno"/>
+		<meta name="charset" content="utf-8"/> --> 
+		<link rel="stylesheet" type="text/css" href="stylesheets/reset_html5.css"/>
+	<!--	<link rel="stylesheet" type="text/css" href="stylesheets/flip_099.css"/> -->
+		<link rel="stylesheet" type="text/css" href="stylesheets/foundation.css"/>
+		<link rel="stylesheet" href="stylesheets/app.css">
+		<!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<link rel="stylesheet" type="text/css" href="/lab/flip/flip_ie.css"/>
+		<![endif]-->		
+		<script src="http://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+		  // Load jQuery
+		  google.load("jquery", "1");	
+		</script>
+		<script src="javascripts/jquery-ui-1.7.2.custom.min.js"></script>
+		<script src="javascripts/jquery.flip.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				$("#flipPad a:not(.revert)").bind("click",function(){
+					var $this = $(this);
+					$("#flipbox").flip({
+						direction: $this.attr("rel"),
+						color: $this.attr("rev"),
+						content: $this.attr("title"),//(new Date()).getTime(),
+						onBefore: function(){$(".revert").show()}
+					})
+					return false;
+				});
+				
+				$(".revert").bind("click",function(){
+					$("#flipbox").revertFlip();
+					return false;
+				});
+				
+	
+		
+		
+		
+		
+			});
+		</script>					
+	</head>
+	<body>
+	
+	  <div class="row">
+    <div class="twelve columns">
+
+    <!-- Navigation -->
+
+      <div class="row">
+        <div class="twelve columns">
+
+        <nav class="top-bar">
+          <ul class="top-bar">
+            <li class="name"><h1><a href="#">Mix Tape Shelf</a></h1></li>
+            <li class="toggle-topbar"><a href="#"></a></li>
+          </ul>
+
+        </nav>
+
+      </div>
+    </div>
+	
+	
+	
+	
+	<div class="eight columns">
+        <div class="row">
+	        <div class="four mobile-two columns">
+             
+              
+              <div class="panel">
+            
+	              	<div id="flipbox"> <img src="images/cassette2.jpg" /> </div>
+	              	
+	              		
+	              	
+	              	
+	              		
+	              		
+	          </div>
+	              			<div id="flipPad">
+	              		
+	              		
+	    
+	              		
+	              		
+	              		
+	              		<a href="#" class="left" rel="rl" rev="#39AB3e" title="">Tracks</a>
+	              		<a href="#" class="revert">Cassette</a>
+	              		
+	              			</div>
+	           <div class="row">    			
+	         <div class="panel">
+	         
+	         <div id="flipbox"> <iframe src="https://embed.spotify.com/?uri=spotify:user:dfader:playlist:6YpI33Tqq8rcjAs53uRKoq" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> </div>
+	         
+	         <div id="flipPad">
+	              		
+	              		
+	    
+	              		
+	              		
+	              		
+	              		<a href="#" class="left" rel="rl" rev="#39AB3e" title="">Tracks</a>
+	              		<a href="#" class="revert">Cassette</a>
+	              		
+	              			</div>
+	         </div>
+	           </div>
+	              			
+	              
+	        </div>
+        </div>
+	</div>
+    </div>
+	  </div>
+	</body>
+</html>
+	
+	
+	
+	
+	
+	
+	
+
