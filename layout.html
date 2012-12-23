@@ -12,6 +12,7 @@
 	<!--	<link rel="stylesheet" type="text/css" href="stylesheets/flip_099.css"/> -->
 		<link rel="stylesheet" type="text/css" href="stylesheets/foundation.css"/>
 		<link rel="stylesheet" href="stylesheets/app.css">
+		<link rel="stylesheet" type="text/css" href="stylesheets/rateit.css"/>
 		<!--[if IE]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 			<link rel="stylesheet" type="text/css" href="/lab/flip/flip_ie.css"/>
@@ -24,6 +25,7 @@
 		<script src="javascripts/jquery-ui-1.7.2.custom.min.js"></script>
 		<script src="javascripts/jquery.flip.min.js"></script>
 	<script src="javascripts/jquery.raty.min.js"></script> 
+	<script src="javascripts/jquery.rateit.min.js"></script>
 		
 		
 		
@@ -50,224 +52,7 @@
 			});
 		</script>
 		
-		<script type="text/javascript">
-		$('#star').raty();
-
-<div id="star"></div>
-
-$('.star').raty();
-
-<div class="star"></div>
-<div class="star"></div>
-<div class="star"></div>
-
-</script>
-		
-	
-	<script type="text/javascript">
-			$(function() {
-
- 				$.fn.raty.defaults.path = '/raty/img/';
-
-				$('#default').raty();
-
-				$('#fixed').raty({
-					readOnly	: true,
-					score		: 2
-				});
-
-				$('#score').raty({
-				    score: function() {
-				        return $(this).attr('data-rating');
-				    }
-				});
-
-				$('#anyone').raty({
-					readOnly	: true,
-					noRatedMsg	: 'anyone rated this product yet!'
-				});
-
-				$('#number').raty({
-					scoreName	: 'entity.score',
-					number		: 10
-				});
-
-				$('#click').raty({
-					click: function(score, evt) {
-						alert('ID: ' + $(this).attr('id') + '\nscore: ' + score + '\nevent: ' + evt);
-					}
-				});
-
-				$('#cancel').raty({
-					cancel: true
-				});
-
-				$('#cancel-custom').raty({
-					cancel		: true,
-					cancelHint	: 'remove my rating!',
-					cancelPlace	: 'right',
-					click		: function(score, evt) {
-						alert('score: ' + score);
-					}
-				});
-
-				$('#half').raty({
-					half	: true,
-					score	: 3.3
-				});
-
-				$('#round').raty({
-					score	: 1.26,
-					round	: { down: .25, full: .6, up: .76 }
-				});
-
-				$('#icon').raty({
-					hints		: ['a', '', null, 'd', '5'],
-					path		: '/raty/doc/img/',
-				   	starOn		: 'medal-on.png',
-				   	starOff		: 'medal-off.png'
-				});
-
-				$('#range').raty({
-					iconRange	: [
-						{ range: 2, on: 'face-a.png', off: 'face-a-off.png' },
-						{ range: 3, on: 'face-b.png', off: 'face-b-off.png' },
-						{ range: 4, on: 'face-c.png', off: 'face-c-off.png' },
-						{ range: 5, on: 'face-d.png', off: 'face-d-off.png' }
-					],
-					path		: '/raty/doc/img/'
-				});
-
-				$('#big').raty({
-					cancel		: true,
-					cancelOff	: 'cancel-off-big.png',
-					cancelOn	: 'cancel-on-big.png',
-					half		: true,
-					path		: '/raty/doc/img/',
-					size		: 24,
-					starOff		: 'star-off-big.png',
-					starOn		: 'star-on-big.png',
-					starHalf	: 'star-half-big.png'
-				});
-
-				$('.group').raty();
-
-				$('#target').raty({
-					cancel		: true,
-					cancelHint	: 'none',
-					target		: '#hint'
-				});
-
-				$('#format').raty({
-					cancel			: true,
-					cancelHint		: 'Sure?',
-					target			: '#hint-format',
-					targetFormat	: 'your score: {score}',
-					targetKeep		: true,
-					targetText		: 'none'
-				});
-
-				$('#target-number').raty({
-					cancel		: true,
-					target		: '#score-target',
-					targetKeep	: true,
-					targetType	: 'number'
-				});
-
-				$('#target-out').raty({
-					target		: '#hint-out',
-					targetText	: '--'
-				});
-
-				$('#mouseover').raty({
-  					cancel		: true,
-  					mouseover	: function(score, evt) {
-  						var target = $('#mouseover-target');
-
-  						if (score === null) {
-  							target.html('Boring!');
-  						} else if (score === undefined) {
-  							target.empty();
-  						} else {
-  							target.html('score: ' + score);
-  						}
-  					}
-  				});
-
-				$('#precision').raty({
-					half		: true,
-					path		: '/raty/doc/img/',
-					precision	: true,
-					size		: 24,
-					starOff		: 'star-off-big.png',
-					starOn		: 'star-on-big.png',
-					starHalf	: 'star-half-big.png',
-					target		: '#precision-target',
-					targetType	: 'number'
-				});
-
-				$('#space').raty({
-					space: false
-				});
-
-				$('#single').raty({
-					single: true
-				});
-
-				var $result = $('#result').raty();
-
-				$('.action').raty({
-					click: function(score, evt) {
-						$(this).raty('cancel');
-						$result.raty('score', score);
-					}
-				});
-
-				$('#function').raty({
-					cancel		: true,
-					cancelHint	: 'Boring!',
-					click		: function(score, evt) {
-						$(this).fadeOut(function() { $(this).fadeIn(); });
-					},
-					targetKeep	: true,
-					score		: 2,
-					target		: '#hint-function',
-					targetText	: '--'
-				});
-
-				$('.score').click(function() {
-					$('#function').raty('score', this.title);
-				});
-
-				$('.click').click(function() {
-					$('#function').raty('click', this.title);
-				});
-
-				$('.readOnly').click(function() {
-					$('#function').raty('readOnly', (this.title == 'true') ? true : false);
-				});
-
-				$('.cancel').click(function() {
-					$('#function').raty('cancel', (this.title == 'true') ? true : false);
-				});
-
-				$('#reload').click(function() {
-					$('#function').raty('reload');
-				});
-
-				$('#get-score').click(function() {
-					alert($('#function').raty('score'));
-				});
-
-				$('#set-action').on('click', function() {
-					var options = $('#set-id').val();
-
-					eval("$('#function').raty('set', " + options + ");");
-				});
-
-			});
-		</script>		
-						
+									
 									
 						
 						
@@ -300,8 +85,11 @@ $('.star').raty();
     		<div id="flipPad">
 	    		<a href="#" rel="rl" title='<html> <iframe src="https://embed.spotify.com/?uri=spotify:user:dfader:playlist:6YpI33Tqq8rcjAs53uRKoq" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> </html>'>Tracks</a>
 	    		<a href="#" class="revert" >Cassette</a> 
+	    		<div class="rateit"></div>
+	       
+	       
 	       </div>
-	       <div id="star"></div>
+	       
   
   
   
@@ -313,7 +101,7 @@ $('.star').raty();
     <div id="flipbox"> <img src="images/cassette_1.jpg"/> </div>
     		<div id="flipPad">
 	    		<a href="#" rel="rl" title='<html> <iframe src="https://embed.spotify.com/?uri=spotify:user:dfader:playlist:6pPsddotNN9d3W6ViJ0KDF" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> </html>'>Tracks</a>
-	    		<a href="#" class="revert" >Cassette</a><div id="star"></div>
+	    		<a href="#" class="revert" >Cassette </div>
 	       </div>
     </div> 
     
@@ -323,20 +111,7 @@ $('.star').raty();
 	    		<a href="#" rel="rl" title='<html> <iframe src="https://embed.spotify.com/?uri=spotify:user:dfader:playlist:6pPsddotNN9d3W6ViJ0KDF" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> </html>'>Tracks</a>
 	    		<a href="#" class="revert" >Cassette</a>
 	       </div>
-	       <div id="star">
-		       
-		       <script type="text/javascript">
-		$('#star').raty();
-
-<div id="star"></div>
-
-$('.star').raty();
-
-<div class="star"></div>
-<div class="star"></div>
-<div class="star"></div>
-
-</script>
+	     
 
 		       
 		       
@@ -345,10 +120,6 @@ $('.star').raty();
 
    <p> <h1>this is a test</h1></p>
      
-
-    
-    
-    
     
     
     
