@@ -1230,6 +1230,10 @@ table.show-for-xlarge, table.show-for-large, table.hide-for-small, table.hide-fo
   .top-bar ul > li.has-button a.button { margin: 0; } }
   
   .container li strong { display: block; }
+
+
+/* --- Flip Box --- */
+
 #flipbox {
   width: 300px;
   height: 380px;
@@ -1243,13 +1247,14 @@ table.show-for-xlarge, table.show-for-large, table.hide-for-small, table.hide-fo
 #flipPad {
   margin: 15px 0;
   width: 300px;
+  padding: 5px
   /*text-align: center; */
 }
 #flipPad a {
   padding: 5px 15px;
   background: rgba(255,255,255,0.5);
-  border: 2px solid #000000;
-  border-radius: 2px;
+  /*border: 2px solid #000000;
+  border-radius: 2px; */
   color: #000000;
   font-weight: bold;
   text-decoration: none;
@@ -1271,8 +1276,8 @@ table.show-for-xlarge, table.show-for-large, table.hide-for-small, table.hide-fo
 #flipPad a:hover {
   padding: 5px 15px;
   background: rgba(255,255,255,0.5);
-  border: 2px solid #000000;
-  border-radius: 2px;
+ /* border: 2px solid #000000;
+  border-radius: 2px; */
   color: #000000;
   font-weight: bold;
   text-decoration: none;
@@ -1298,9 +1303,9 @@ table.show-for-xlarge, table.show-for-large, table.hide-for-small, table.hide-fo
   
 #flipPad .revert {
   padding: 5px 15px;
-  background: rgba(255,255,255,0.5);
+ /* background: rgba(255,255,255,0.5);
   border: 2px solid #000000;
-  border-radius: 2px;
+  border-radius: 2px; */ 
   color: #000000;
   font-weight: bold;
   text-decoration: none;
@@ -1314,5 +1319,162 @@ table.show-for-xlarge, table.show-for-large, table.hide-for-small, table.hide-fo
   -webkit-box-shadow: 1px 1px 2px #999999;
   -webkit-transition-duration: 1s;
 }
-  
-  
+
+/* --- Rate It --- */
+
+div.rateit
+{
+	padding: 5px 5px;
+	background: rgba(255,255,255,0.5);
+  /*border: 2px solid #000000;
+  border-radius: 2px;
+  color: #000000; */
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1em;
+  font-family: Helvetica, Tahoma, Verdana, sans-serif;
+  line-height: 30px;
+  height: 30px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-box-shadow: 1px 1px 2px #999999;
+  -webkit-box-shadow: 1px 1px 2px #999999;
+  -webkit-transition-duration: 1s;    
+  position: relative;
+    display: -moz-inline-box;
+    display: inline-block;
+}
+
+div.rateit div.rateit-range
+{
+    position: relative;
+    display: -moz-inline-box;
+    display: inline-block;
+    background: url('../images/star.gif');
+    height: 16px;
+}
+
+/* for IE 6 */
+* html div.rateit, * html div.rateit div.rateit-range
+{
+    display: inline;
+}
+
+/* for IE 7 */
+* + html div.rateit, * + html div.rateit div.rateit-range
+{
+    display: inline;
+}
+
+div.rateit div.rateit-hover, div.rateit div.rateit-selected
+{
+    position: absolute;
+    left: 0px;
+}
+
+div.rateit div.rateit-hover-rtl, div.rateit div.rateit-selected-rtl
+{
+    left: auto;
+    right: 0px;
+}
+
+div.rateit div.rateit-hover
+{
+    background: url('../images/star.gif') left -32px;
+}
+
+div.rateit div.rateit-hover-rtl
+{
+    background-position: right -32px;
+}
+
+div.rateit div.rateit-selected
+{
+    background: url('../images/star.gif') left -16px;
+}
+
+div.rateit div.rateit-selected-rtl
+{
+    background-position: right -16px;
+}
+
+div.rateit div.rateit-preset
+{
+    background: url('../images/star.gif') left -48px;
+}
+
+div.rateit div.rateit-preset-rtl
+{
+    background: url('../images/star.gif') left -48px;
+}
+
+div.rateit div.rateit-reset
+{
+    background: url('../images/delete.gif') 0 0;
+    
+    width: 16px;
+    height: 16px;
+    display: -moz-inline-box;
+    display: inline-block;
+    float: left;
+}
+
+div.rateit div.rateit-reset:hover
+{
+    background-position: 0 -16px;
+}
+
+/* --- Sharrre --- */
+
+.sharrre .box{
+  float:left;
+}
+.sharrre .count {
+  color:#444444;
+  display:block;
+  font-size:17px;
+  line-height:34px;
+  height:34px;
+  padding:4px 0;
+  position:relative;
+  text-align:center;
+  text-decoration:none;
+  width:50px;
+  background-color:#eee;
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:4px; 
+}
+.sharrre .share {
+  color:#FFFFFF;
+  display:block;
+  font-size:11px;
+  height:16px;
+  line-height:16px;
+  margin-top:3px;
+  padding:0;
+  text-align:center;
+  text-decoration:none;
+  width:50px;
+  background-color:#9CCE39;
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:4px; 
+}
+.sharrre .buttons {
+  display:none;
+  position:absolute;
+  margin-left:50px;
+  z-index:10;
+  background-color:#fff;
+}
+.sharrre .button {
+  float:left;
+  max-width:50px;
+  margin-left:10px;
+}
+
+
+
+
+
