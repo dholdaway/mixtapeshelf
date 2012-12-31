@@ -31,10 +31,15 @@
 		
 		<script type="text/javascript">
 		$(function(){
-				
-				$("#flipPad a:not(.revert)").bind("click",function(){
+
+			$(".trackView").each(function(index, element){
+
+				$element = $(element);
+
+				$element.bind("click",function(){
 					var $this = $(this);
-					$("#flipbox").flip({
+					var $parentTape = $this.parent('#flipPad').siblings('#flipbox');
+					$parentTape.flip({
 						direction: $this.attr("rel"),
 						color: $this.attr("rev"),
 						content: $this.attr("title"),//(new Date()).getTime(),
@@ -42,12 +47,15 @@
 					})
 					return false;
 				});
+
+			});
 				
-				$(".revert").bind("click",function(){
-					$("#flipbox").revertFlip();
-					return false;
-				});
-				
+			$(".revert").bind("click",function(){
+				var $this = $(this);
+				var $parentTape = $this.parent('#flipPad').siblings('#flipbox');
+				$parentTape.revertFlip();
+				return false;
+			});
 				
 		});
 		</script>
@@ -84,7 +92,7 @@
     	<div id="flipbox"> <img src="images/cassette_3.jpg"/> </div>     		
     	<div id="flipPad">
     	
-	    		<a href="#" rel="rl" title='<html> <iframe src="https://embed.spotify.com/?uri=spotify:user:dfader:playlist:6YpI33Tqq8rcjAs53uRKoq" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> </html>'>Tracks</a>
+	    		<a href="#" class="trackView" rel="rl" title='<html> <iframe src="https://embed.spotify.com/?uri=spotify:user:dfader:playlist:6YpI33Tqq8rcjAs53uRKoq" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> </html>'>Tracks</a>
 	    		<a href="#" class="revert" >Cassette </a> 
 	    		<div class="rateit" ></div>
 	    		
@@ -116,7 +124,7 @@
   <div class="four columns">
     	<div id="flipbox"> <img src="images/cassette_2.jpg"/> </div>     		
     	<div id="flipPad">
-	    		<a href="#" rel="rl" title='<html> <iframe src="https://embed.spotify.com/?uri=spotify:user:dfader:playlist:6YpI33Tqq8rcjAs53uRKoq" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> </html>'>Tracks</a>
+	    		<a href="#" class="trackView" rel="rl" title='<html> <iframe src="https://embed.spotify.com/?uri=spotify:user:dfader:playlist:6YpI33Tqq8rcjAs53uRKoq" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> </html>'>Tracks</a>
 	    		<a href="#" class="revert" >Cassette </a> 
 	    		<div class="rateit" ></div>
 	    		 
@@ -133,7 +141,7 @@
 <div class="four columns">
     	<div id="flipbox"> <img src="images/cassette_1.jpg"/> </div>     		
     	<div id="flipPad">
-	    		<a href="#" rel="rl" title='<html> <iframe src="https://embed.spotify.com/?uri=spotify:user:dfader:playlist:6YpI33Tqq8rcjAs53uRKoq" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> </html>'>Tracks</a>
+	    		<a href="#" class="trackView" rel="rl" title='<html> <iframe src="https://embed.spotify.com/?uri=spotify:user:dfader:playlist:6YpI33Tqq8rcjAs53uRKoq" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> </html>'>Tracks</a>
 	    		<a href="#" class="revert" >Cassette </a> 
 	    		<div class="rateit" ></div>
   
@@ -158,7 +166,7 @@
     	<div id="flipbox"> <img src="images/cassette_3.jpg"/> </div>     		
     	<div id="flipPad">
     	
-	    		<a href="#" rel="rl" title='<html> <iframe src="https://embed.spotify.com/?uri=spotify:user:dfader:playlist:6YpI33Tqq8rcjAs53uRKoq" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> </html>'>Tracks</a>
+	    		<a href="#" class="trackView" rel="rl" title='<html> <iframe src="https://embed.spotify.com/?uri=spotify:user:dfader:playlist:6YpI33Tqq8rcjAs53uRKoq" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> </html>'>Tracks</a>
 	    		<a href="#" class="revert" >Cassette </a> 
 	    		<div class="rateit" ></div>
 	    		
@@ -172,7 +180,7 @@
   <div class="four columns">
     	<div id="flipbox"> <img src="images/cassette_2.jpg"/> </div>     		
     	<div id="flipPad">
-	    		<a href="#" rel="rl" title='<html> <iframe src="https://embed.spotify.com/?uri=spotify:user:dfader:playlist:6YpI33Tqq8rcjAs53uRKoq" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> </html>'>Tracks</a>
+	    		<a href="#" class="trackView" rel="rl" title='<html> <iframe src="https://embed.spotify.com/?uri=spotify:user:dfader:playlist:6YpI33Tqq8rcjAs53uRKoq" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> </html>'>Tracks</a>
 	    		<a href="#" class="revert" >Cassette </a> 
 	    		<div class="rateit" ></div>
   
@@ -183,7 +191,7 @@
 <div class="four columns">
     	<div id="flipbox"> <img src="images/cassette_1.jpg" /> </div>     		
     	<div id="flipPad">
-	    		<a href="#" rel="rl" title='<html> <iframe src="https://embed.spotify.com/?uri=spotify:user:dfader:playlist:6YpI33Tqq8rcjAs53uRKoq" width="200" height="280" frameborder="0" allowtransparency="true"></iframe> </html>'>Tracks</a>
+	    		<a href="#" class="trackView" rel="rl" title='<html> <iframe src="https://embed.spotify.com/?uri=spotify:user:dfader:playlist:6YpI33Tqq8rcjAs53uRKoq" width="200" height="280" frameborder="0" allowtransparency="true"></iframe> </html>'>Tracks</a>
 	    		<a href="#" class="revert" >Cassette </a> 
 	    		<div class="rateit" ></div>
   
