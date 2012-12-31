@@ -49,7 +49,7 @@ $uid = md5(uniqid(mt_rand()));
 			<script>
 function validateForm()
 {
-var x=document.forms["form-search"]["fname"].value;
+var x=document.forms["form-search"]["Name"].value;
 if (x==null || x=="")
   {
   alert("First name must be filled out");
@@ -62,7 +62,7 @@ if (x==null || x=="")
 	
 	
 	
-	<!-- BELOW WORKS TO UPLOAD!!! 
+	<!-- BELOW WORKS TO UPLOAD!!! --> 
 		<script>
 	
             (function ($) {
@@ -145,7 +145,7 @@ if (x==null || x=="")
             }(jQuery));
         </script>
 
-				-->
+				
 						
 						
 	</head>
@@ -190,14 +190,17 @@ if (x==null || x=="")
   <div class="four columns">
 
 
-
-<label>Enter Your Details Here</label>
-<form class="form-search" action="submit.php" method="post">
-Name: <input type="text" name="fname" placeholder="Please Enter Your Name">
-playlist URL: <input type="url" name="playlistURL" placeholder="Add Spotify playlist URL">
-<input type="submit">
+<fieldset>
+<legend>Submit Your Tape Here</legend>
+<form id="upload-form" action="insert.php" action="upload.php" method="post" enctype="multipart/form-data" target="upload-frame">
+<input type="hidden" id="uid" name="UPLOAD_IDENTIFIER" value="<?php echo $uid; ?>">
+Name: <input type="text" name="Name" placeholder="Please Enter Your Name"> <p>
+playlist URL: <input type="url" name="Playlist" placeholder="Add Spotify playlist URL"><p>
+<row>Upload Cover: <input type="file" name="Cover"> <output id="Cover"> </output>
+<input type="submit" name="submit" value="Upload!"></row>
 </form>
-
+<div id="progress-bar"></div>
+        <iframe id="upload-frame" name="upload-frame"></iframe> </fieldset>
 
 
 
@@ -215,8 +218,8 @@ playlist URL: <input type="url" name="playlistURL" placeholder="Add Spotify play
 					
 	</form>
 -->
-
-	<form id="upload-form" method="post" action="upload.php" enctype="multipart/form-data" target="upload-frame" >
+<!--
+	<form id="upload-form" method="post" action="insert.php" enctype="multipart/form-data" target="upload-frame" >
         <input type="hidden" id="uid" name="UPLOAD_IDENTIFIER" value="<?php echo $uid; ?>" >
             <input type="file" name="file">
             <input type="submit" name="submit" value="Upload!">
@@ -226,13 +229,13 @@ playlist URL: <input type="url" name="playlistURL" placeholder="Add Spotify play
 
 
 
-  
+  -->
 </div>
  
 
   <div class="four columns">
     
-       <!--    MOVING 
+        
         <form id="upload-form"
               method="post"
               action="upload.php"
@@ -249,7 +252,7 @@ playlist URL: <input type="url" name="playlistURL" placeholder="Add Spotify play
         <iframe id="upload-frame" name="upload-frame"></iframe>
    
 
-    	-->
+    	
 	    		
   
 	    </div>
