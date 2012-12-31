@@ -1,0 +1,347 @@
+<?php
+// Generate random string for our upload identifier
+$uid = md5(uniqid(mt_rand()));
+?>
+<!DOCTYPE html>
+<html lang="en">
+<html>
+	<head>
+	
+	 <meta charset="utf-8">
+        
+        
+        
+		<title>Mix Tape Shelf Submission</title>
+		<!--
+		<meta name="keywords" content="flip, flipping, jquery, jquery plugin, plugin, animation plugin, javascript, css, border animation"/>
+		<meta name="language" content="english"/>
+		<meta name="robots" content="index,follow"/>
+		<meta name="author" content="Luca Manno"/>
+		<meta name="charset" content="utf-8"/> --> 
+		<link rel="stylesheet" type="text/css" href="stylesheets/reset_html5.css"/>
+	<!--	<link rel="stylesheet" type="text/css" href="stylesheets/flip_099.css"/> -->
+		<link rel="stylesheet" type="text/css" href="stylesheets/foundation.css"/>
+		<link rel="stylesheet" href="stylesheets/app.css">
+		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/themes/start/jquery-ui.css" rel="stylesheet" />
+	<!--	<link rel="stylesheet" type="text/css" href="stylesheets/rateit.css"/> -->
+		<!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<link rel="stylesheet" type="text/css" href="/lab/flip/flip_ie.css"/>
+		<![endif]-->		
+		<script src="http://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+		  // Load jQuery
+		  google.load("jquery", "1");	
+		</script>
+		<script src="javascripts/jquery-1.8.3.min.js"></script>
+		<script src="javascripts/jquery-ui-1.7.2.custom.min.js"></script>
+		<script src="javascripts/jquery.flip.min.js"></script>
+		<script src="javascripts/jquery.rateit.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script>
+        <style>
+            #progress-bar, #upload-frame {
+                display: none;
+            }
+        </style>
+	<!--	<script src="javascripts/jquery.sharrre-1.3.4.js"></script> -->
+	
+			<script>
+function validateForm()
+{
+var x=document.forms["form-search"]["fname"].value;
+if (x==null || x=="")
+  {
+  alert("First name must be filled out");
+  return false;
+  }
+}
+</script>	
+	
+	
+	
+	
+	
+	<!-- BELOW WORKS TO UPLOAD!!! 
+		<script>
+	
+            (function ($) {
+ 
+                // We'll use this to cache the progress bar node
+                var pbar;
+ 
+                // This flag determines if the upload has started
+                var started = false;
+ 
+                $(function () {
+ 
+                    // Start progress tracking when the form is submitted
+                    $('#upload-form').submit(function() {
+ 
+                        // Hide the form
+                        $('#upload-form').hide();
+ 
+                        // Cache the progress bar
+                        pbar = $('#progress-bar');
+ 
+                        // Show the progress bar
+                        // Initialize the jQuery UI plugin
+                        pbar.show().progressbar();
+ 
+                        // We know the upload is complete when the frame loads
+                        $('#upload-frame').load(function () {
+ 
+                            // This is to prevent infinite loop
+                            // in case the upload is too fast
+                            started = true;
+ 
+                            // Do whatever you want when upload is complete
+                            alert('Upload Complete!');
+ 
+                        });
+ 
+                        // Start updating progress after a 1 second delay
+                        setTimeout(function () {
+ 
+                            // We pass the upload identifier to our function
+                            updateProgress($('#uid').val());
+ 
+                        }, 1000);
+ 
+                    });
+ 
+                });
+ 
+                function updateProgress(id) {
+ 
+                    var time = new Date().getTime();
+ 
+                    // Make a GET request to the server
+                    // Pass our upload identifier as a parameter
+                    // Also pass current time to prevent caching
+                    $.get('getprogress.php', { uid: id, t: time }, function (data) {
+ 
+                        // Get the output as an integer
+                        var progress = parseInt(data, 10);
+ 
+                        if (progress < 100 || !started) {
+ 
+                            // Determine if upload has started
+                            started = progress < 100;
+ 
+                            // If we aren't done or started, update again
+                            updateProgress(id);
+ 
+                        }
+ 
+                        // Update the progress bar percentage
+                        // But only if we have started
+                        started && pbar.progressbar('value', progress);
+ 
+                    });
+ 
+                }
+ 
+            }(jQuery));
+        </script>
+
+				-->
+						
+						
+	</head>
+	
+	
+	
+	
+	
+	
+	<body>
+	
+	
+	
+	
+	
+	
+	  <div class="row">
+    <div class="twelve columns">
+
+    <!-- Navigation -->
+
+      <div class="row">
+        <div class="twelve columns">
+
+        <nav class="top-bar">
+          <ul class="top-bar">
+            <li class="toggle-topbar"><a href="#"></a></li>
+            <li class="name"><h1><a href="#">Mix Tape Shelf</a></h1></li>
+            <li class="toggle-topbar"><a href="#"></a></li>
+            <li class="name"><a href="/mixtapeshelf/layout.html">back</a></li>
+          </ul>
+            
+            
+          </ul>
+
+        </nav>
+
+      </div>
+    </div>
+
+<div class="row">
+  <div class="four columns">
+
+
+
+<label>Enter Your Details Here</label>
+<form class="form-search" action="submit.php" method="post">
+Name: <input type="text" name="fname" placeholder="Please Enter Your Name">
+playlist URL: <input type="url" name="playlistURL" placeholder="Add Spotify playlist URL">
+<input type="submit">
+</form>
+
+
+
+
+<!--
+	  <form class="form-search">
+					
+					
+					
+					<label>Submitted By:</label>
+  <input type="text" id="fname" name="full_name" placeholder="Jane Doe" required>
+					
+  <input type="url" placeholder="Add Spotify playlist URL" name="Add Spotify playlist URL" class="submitURL">
+  
+					<button type="button" class="addBtn btn"> S u b m i t </button>
+					
+	</form>
+-->
+
+	<form id="upload-form" method="post" action="upload.php" enctype="multipart/form-data" target="upload-frame" >
+        <input type="hidden" id="uid" name="UPLOAD_IDENTIFIER" value="<?php echo $uid; ?>" >
+            <input type="file" name="file">
+            <input type="submit" name="submit" value="Upload!">
+        </form>
+        <div id="progress-bar"></div>
+        <iframe id="upload-frame" name="upload-frame"></iframe>
+
+
+
+  
+</div>
+ 
+
+  <div class="four columns">
+    
+       <!--    MOVING 
+        <form id="upload-form"
+              method="post"
+              action="upload.php"
+              enctype="multipart/form-data"
+              target="upload-frame" >
+            <input type="hidden"
+                   id="uid"
+                   name="UPLOAD_IDENTIFIER"
+                   value="<?php echo $uid; ?>" >
+            <input type="file" name="file">
+            <input type="submit" name="submit" value="Upload!">
+        </form>
+        <div id="progress-bar"></div>
+        <iframe id="upload-frame" name="upload-frame"></iframe>
+   
+
+    	-->
+	    		
+  
+	    </div>
+ 
+
+
+
+
+
+
+
+    
+
+
+  <div class="four columns">
+    <!--	<div id="flipbox"> <img src="images/cassette_2.jpg"/> </div>     		
+    	<div id="flipPad"> -->
+	    	<!-- 	<a href="#" rel="rl" title='<html> --> <iframe src="https://embed.spotify.com/?uri=spotify:user:dfader:playlist:6YpI33Tqq8rcjAs53uRKoq" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> <!-- </html>'>Tracks</a>
+	    		<a href="#" class="revert" >Cassette </a> 
+	    		<div class="rateit" ></div>
+	    		 -->
+   
+    
+  
+	    </div>
+  
+
+  
+  
+<!--  </div> -->
+
+
+  
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+  
+  <div class="row">
+  <div class="four columns">
+    	
+    
+  
+	    </div>
+ 
+  </div>
+    
+
+
+
+
+
+
+
+
+
+
+</div>
+
+  <div class="four columns">    </div>
+</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<p> <h1>submission page</h1></p>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</body>
+</html>
+
+	
+	
+	
